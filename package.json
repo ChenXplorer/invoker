@@ -1,0 +1,128 @@
+{
+	"name": "invoker",
+	"displayName": "invoker",
+	"description": "invoker",
+	"publisher": "xuzhouchen",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:invoker.littleCamelCase",
+		"onCommand:invoker.bigCamelCase",
+		"onCommand:invoker.crossCase",
+		"onCommand:invoker.underlineCase",
+		"onCommand:invoker.upperCase",
+		"onCommand:invoker.upperCrossCase",
+		"onCommand:invoker.upperUnderlineCase"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "invoker.littleCamelCase",
+				"title": "转化为小驼峰格式"
+			},
+			{
+				"command": "invoker.bigCamelCase",
+				"title": "转化为大驼峰格式"
+			},
+			{
+				"command": "invoker.crossCase",
+				"title": "转化为中划线格式"
+			},
+			{
+				"command": "invoker.underlineCase",
+				"title": "转化为下划线格式"
+			},
+			{
+				"command": "invoker.upperCase",
+				"title": "转化为常量普通格式"
+			},
+			{
+				"command": "invoker.upperCrossCase",
+				"title": "转化为常量中划线格式"
+			},
+			{
+				"command": "invoker.upperUnderlineCase",
+				"title": "转化为常量下划线格式"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorFocus",
+					"command": "invoker.littleCamelCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.bigCamelCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.crossCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.underlineCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.upperCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.upperCrossCase",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "invoker.upperUnderlineCase",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "npm run test-compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.60.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2",
+		"ts-loader": "^9.2.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0",
+		"vscode": "^1.1.37"
+	},
+	"dependencies": {
+		"fs": "0.0.1-security",
+		"got": "^11.8.2",
+		"path": "^0.12.7"
+		
+	}
+}
