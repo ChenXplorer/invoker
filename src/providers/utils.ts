@@ -9,13 +9,15 @@ export const TYPES = [
 ];
 
 export function wordSplit(word: string) {
-  if (word.includes('-')) {
-    return word.split('-');
+  // 按- _ ' ' 及大写字母分割 
+  // 无法处理SET-OF-WHEELS
+  // return word.split(/[-_\s]|(?=[A-Z])/);
+  const result  = word.split(/[-_\s]/);
+  if(result.length === 1) {
+    return (result+'').split(/(?=[A-Z])/);
   }
-  if (word.includes('_')) {
-    return word.split('_');
-  }
-  return word.split(' ');
+  return result;
+
 }
 
 export function getUpper(word: string) {

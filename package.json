@@ -3,21 +3,17 @@
 	"displayName": "invoker",
 	"description": "invoker",
 	"publisher": "xuzhouchen",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"icon": "1.jpg",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
+	"repository": "https://github.com/xuzhouchen1104/invoker.git",
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:invoker.littleCamelCase",
-		"onCommand:invoker.bigCamelCase",
-		"onCommand:invoker.crossCase",
-		"onCommand:invoker.underlineCase",
-		"onCommand:invoker.upperCase",
-		"onCommand:invoker.upperCrossCase",
-		"onCommand:invoker.upperUnderlineCase"
+		"*"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {

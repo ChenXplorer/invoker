@@ -41,6 +41,8 @@ const varToEn = async (type: string) => {
   const selected = editor?.document.getText(editor?.selection);
   const result = await google(selected, { to: 'en' });
   const en = result.text ? result.text : result.word;
+  console.log(en);
+  
   editor?.edit((builder) => {
     builder.replace(editor?.selection, formatWord(en, type));
   });
