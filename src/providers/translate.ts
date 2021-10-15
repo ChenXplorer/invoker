@@ -5,8 +5,7 @@ import { getCamel, getUpper, wordSplit, TYPES } from './utils';
 const formatWord = (word: string, type: string) => {
   switch (type) {
     case 'littleCamelCase':
-      const littleCamelCase = getCamel(word);
-      return littleCamelCase.join('');
+      return getCamel(word).join('');
 
     case 'bigCamelCase':
       const bigCamelCase = wordSplit(word).map((v, index) => {
@@ -21,16 +20,13 @@ const formatWord = (word: string, type: string) => {
       return wordSplit(word).join('_');
 
     case 'upperCase':
-      const upperCase = getUpper(word);
-      return upperCase.join('');
+      return getUpper(word).join('');
 
     case 'upperCrossCase':
-      const upperCrossCase = getUpper(word);
-      return upperCrossCase.join('-');
+      return getUpper(word).join('-');
 
     case 'upperUnderlineCase':
-      const upperUnderlineCase = getUpper(word);
-      return upperUnderlineCase.join('_');
+      return getUpper(word).join('-');
     default:
       return word;
   }
@@ -41,8 +37,6 @@ const varToEn = async (type: string) => {
   const selected = editor?.document.getText(editor?.selection);
   const result = await google(selected, { to: 'en' });
   const en = result.text ? result.text : result.word;
-  console.log(en);
-  
   editor?.edit((builder) => {
     builder.replace(editor?.selection, formatWord(en, type));
   });
